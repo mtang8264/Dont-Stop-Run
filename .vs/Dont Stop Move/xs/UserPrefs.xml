@@ -1,0 +1,15 @@
+﻿<Properties StartupConfiguration="{51EF1F58-B7D8-F825-2489-4FCDF76803A1}|">
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/BlonkyMoves.cs">
+    <Files>
+      <File FileName="Assets/Scripts/BlonkyMoves.cs" Line="70" Column="49" />
+      <File FileName="Assets/Scripts/CamControls.cs" Line="25" Column="10" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>
