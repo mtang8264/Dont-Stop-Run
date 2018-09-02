@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
 public class BlonkyMoves : MonoBehaviour {
     //-1 is left, 0 is not moving, 1 is right
@@ -13,6 +14,10 @@ public class BlonkyMoves : MonoBehaviour {
     public float acceleration = 0.1f;
     public float speedMultiplier = 0.1f;
     public GameObject explosion;
+    public float jumpForce = 1f;
+    public bool grounded = true;
+
+    public bool testing = false;
 
 	// Use this for initialization
 	void Start () {
@@ -22,20 +27,14 @@ public class BlonkyMoves : MonoBehaviour {
     void Update()
     {
         //Direction selection
-        if (Input.GetKey(KeyCode.RightArrow)){
-            if (!started)
-                started = true;
-            movingDir = 1;
-            transform.localScale = new Vector3(1f, transform.localScale.y, transform.localScale.z);
+        if (Input.GetKey(KeyCode.RightArrow) || testing){
+            GoRight();
         }else if (Input.GetKey(KeyCode.LeftArrow))
         {
-            if (!started)
-                started = true;
-            movingDir = -1;
-            transform.localScale = new Vector3(-1f, transform.localScale.y, transform.localScale.z);
+            GoLeft();
         }
         else{
-            movingDir = 0;
+            Slow();
         }
 
         //Speed curve
@@ -72,10 +71,31 @@ public class BlonkyMoves : MonoBehaviour {
                 }
             }
         }
+
+        if(Input.GetKeyDown(KeyCode.UpArrow) && grounded){
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce));
+        }
 	}
 
     private void Explode(){
         Instantiate(explosion).transform.position = transform.position;
         Destroy(gameObject);
+    }
+
+    public void GoRight(){
+        if (!started)
+            started = true;
+        movingDir = 1;
+        transform.localScale = new Vector3(1f, transform.localScale.y, transform.localScale.z);
+    }
+    public void GoLeft(){
+        if (!started)
+            started = true;
+        movingDir = -1;
+        transform.localScale = new Vector3(-1f, transform.localScale.y, transform.localScale.z);
+    }
+    public void Slow()
+    {
+        movingDir = 0;
     }
 }
