@@ -51,9 +51,13 @@ public class CamControls : MonoBehaviour {
             }
         }else{
             Vector3 start = new Vector3(transform.position.x, startHeight,-10);
-            Vector3 end = new Vector3(transform.position.x, blonky.position.y,-10);
+            Vector3 end = new Vector3(transform.position.x, blonky.position.y+2.985f,-10);
             transform.position = Vector3.Lerp(start, end, track);
             track += 0.1f;
+            if(track >= 1f){}
+                track = 0f;
+                adjusting = false;
+            }
         }
 	}
 
