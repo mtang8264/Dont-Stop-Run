@@ -5,6 +5,12 @@ using UnityEngine;
 public class CamControls : MonoBehaviour {
     public Transform blonky;
 
+    private bool vertTiming = false;
+    private float vertStart;
+    private bool adjusting = false;
+    private float startHeight;
+    private float track = 0;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -23,7 +29,38 @@ public class CamControls : MonoBehaviour {
                 transform.position = new Vector3(blonky.position.x + 6f, transform.position.y, transform.position.z);
             }
         }
+
+        if (!adjusting)
+        {
+            if (blonky.position.y + 2.985 > transform.position.y)
+            {
+                if (!vertTiming)
+                {
+                    vertStart = Time.time;
+                }
+                vertTiming = true;
+            }
+            else
+            {
+                vertTiming = false;
+            }
+
+            if (vertTiming && Time.time > vertStart + 3f)
+            {
+                AdjustVert();
+            }
+        }else{
+            Vector3 start = new Vector3(transform.position.x, startHeight,-10);
+            Vector3 end = new Vector3(transform.position.x, blonky.position.y,-10);
+            transform.position = Vector3.Lerp(start, end, track);
+            track += 0.1f;
+        }
 	}
+
+    public void AdjustVert(){
+        adjusting = true;
+        startHeight = transform.position.y;
+    }
 
     public void Disasociate(){
         blonky = null;

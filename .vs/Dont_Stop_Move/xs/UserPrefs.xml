@@ -1,10 +1,11 @@
 ﻿<Properties StartupConfiguration="{5FF6559F-6BC5-C0E9-6B04-9E4A08274493}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GroundDetection.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CamControls.cs">
     <Files>
       <File FileName="Assets/Scripts/GroundMove.cs" Line="18" Column="50" />
       <File FileName="Assets/Scripts/BlonkyMoves.cs" Line="75" Column="52" />
       <File FileName="Assets/Scripts/GroundDetection.cs" Line="30" Column="76" />
+      <File FileName="Assets/Scripts/CamControls.cs" Line="8" Column="22" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
